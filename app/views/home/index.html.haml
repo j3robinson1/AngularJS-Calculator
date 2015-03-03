@@ -1,0 +1,25 @@
+%h1 Home
+%div{ 'ng-controller': "indexCtrl" }
+  / = @person.firstname
+  / {{ person.firstname }}
+  {{ result }}
+  %br
+  %br
+  %form{ 'ng-submit': 'formSubmit()'}
+    %button{ 'ng-click': 'plus()'} +
+    %button{ 'ng-click': 'minus()'} -
+    %button{ 'ng-click': 'divide()'} /
+    %button{ 'ng-click': 'one()'} 1
+    %button{ 'ng-click': 'two()'} 2
+    %button{ 'ng-click': 'three()'} 3
+    %button{ 'ng-click': 'four()'} 4
+    %button{ 'ng-click': 'five()'} 5
+    %button{ 'ng-click': 'six()'} 6
+    %button{ 'ng-click': 'seven()'} 7
+    %button{ 'ng-click': 'eight()'} 8
+    %button{ 'ng-click': 'nine()'} 9
+    %button{ 'ng-click': 'changeResult()'} submit
+
+
+  / @texts.each do |text|
+  / %ul{ 'ng-repeat': 'text in texts'}
