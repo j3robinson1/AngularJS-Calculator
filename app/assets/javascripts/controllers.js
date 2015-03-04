@@ -1,56 +1,33 @@
-var indexCtrl = calculator.controller('indexCtrl', function($scope) {
-  // var $scope.texts = that array of texts
-  $scope.result = []
-  var result = $scope.result
-  $scope.results = 0
-  $scope.formInput = ''
+var indexCtrl = calculator.controller('indexCtrl', function($scope){
+  $scope.formInput = '';
+  $scope.result = [];
+
   $scope.changeResult = function() {
-    
-    $scope.result = $scope.results
-  }
+    // add final item to array and then reduce
+    $scope.result.push($scope.formInput);
+    $scope.result = $scope.result.map(Number);
+    var total = _.reduce($scope.result, function(memo, num){return memo + num; },0);
+    $scope.formInput = total;
+    $scope.result = [];
+  };
+
+  $scope.clearCalculator = function() {
+    $scope.formInput = '';
+    $scope.result = [];
+  };
+
+  $scope.userNumber = function(calcNumber) {
+    // console.log($target);
+    $scope.formInput = $scope.formInput.concat(calcNumber);
+  };
+
   $scope.plus = function() {
-    $scope.result.push("+")
-  }
+    $scope.result.push($scope.formInput);
+    $scope.formInput = '+';
+  };
+
   $scope.minus = function() {
-    $scope.result.push("-")
-  }
-  $scope.divide = function() {
-    $scope.result.push("/")
-  }
-  $scope.one = function() {
-    
-    result.push(1)
-  }
-  $scope.two = function() {
-    
-    result.push(2)
-  }
-  $scope.three = function() {
-    
-    result.push(3)
-  }
-  $scope.four = function() {
-    
-    result.push(4)
-  }
-  $scope.five = function() {
-    
-    result.push(5)
-  }
-  $scope.six = function() {
-    
-    result.push(6)
-  }
-  $scope.seven = function() {
-    
-    result.push(7)
-  }
-  $scope.eight = function() {
-    
-    result.push(8)
-  }
-  $scope.nine = function() {
-    
-    result.push(9)
-  }
-})
+    $scope.result.push($scope.formInput);
+    $scope.formInput = '-';
+  };
+});

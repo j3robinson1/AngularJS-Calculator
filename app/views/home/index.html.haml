@@ -1,24 +1,43 @@
-%h1 Home
-%div{ 'ng-controller': "indexCtrl" }
-  / = @person.firstname
-  / {{ person.firstname }}
-  {{ result }}
-  %br
-  %br
-  %form{ 'ng-submit': 'formSubmit()'}
-    %button{ 'ng-click': 'plus()'} +
-    %button{ 'ng-click': 'minus()'} -
-    %button{ 'ng-click': 'divide()'} /
-    %button{ 'ng-click': 'one()'} 1
-    %button{ 'ng-click': 'two()'} 2
-    %button{ 'ng-click': 'three()'} 3
-    %button{ 'ng-click': 'four()'} 4
-    %button{ 'ng-click': 'five()'} 5
-    %button{ 'ng-click': 'six()'} 6
-    %button{ 'ng-click': 'seven()'} 7
-    %button{ 'ng-click': 'eight()'} 8
-    %button{ 'ng-click': 'nine()'} 9
-    %button{ 'ng-click': 'changeResult()'} submit
+.container
+  %div{ 'ng-controller': 'indexCtrl' }
+    .row  
+      %input{type: "text", placeholder: 0, 'ng-model': 'formInput', 'class': 'form-control'}
+    %br
+    .row
+      .btn-group
+        .btn.btn-default{ 'ng-click': 'userNumber(1)'}
+          1
+        .btn.btn-default{ 'ng-click': 'userNumber(2)'}
+          2
+        .btn.btn-default{ 'ng-click': 'userNumber(3)'}
+          3
+        .btn.btn-default{ 'ng-click': 'plus()'}
+          +
+    .row
+      .btn-group
+        .btn.btn-default{ 'ng-click': 'userNumber(4)'}
+          4
+        .btn.btn-default{ 'ng-click': 'userNumber(5)'}
+          5
+        .btn.btn-default{ 'ng-click': 'userNumber(6)'}
+          6
+        .btn.btn-default{ 'ng-click': 'minus()'} -
+    .row
+      .btn-group
+        .btn.btn-default{ 'ng-click': 'userNumber(7)'}
+          7
+        .btn.btn-default{ 'ng-click': 'userNumber(8)'}
+          8
+        .btn.btn-default{ 'ng-click': 'userNumber(9)'}
+          9
+        .btn.btn-default{ 'ng-click': 'changeResult()'} =
+    .row
+      .btn-group
+        .btn.btn-default ''
+        .btn.btn-default{ 'ng-click': 'userNumber(0)'}
+          0
+        .btn.btn-default{ 'ng-click': 'clearCalculator()'}
+          clear
 
 
   / @texts.each do |text|
